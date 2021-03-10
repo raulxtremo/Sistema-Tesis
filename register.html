@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Registro</title>
+	<link rel="stylesheet" type="text/css" href="register.css">
+</head>
+<body>
+	
+    <form method="" action="" class="formulario" >
+    
+        <h1>Register</h1>
+
+
+      <div class="contenedor"> 
+        <div class="select">
+            <label for="perfil-usuario">Selecciona tu perfil:</label><br>
+            <select name="Perfil del usuario" id="perfil_del_usuario">
+				<option value="estudiante">Estudiante</option>
+				<option value="docente">Docente</option>
+				<option value="administracion">Administracion</option>
+			</select>
+        </div>
+        <br>
+
+        <div class="input-contenedor1">
+          <input type="text" name="cedula" placeholder="Cedula">
+        </div>
+
+        <div class="input-contenedor2">
+          <input type="password" name="contraseña" placeholder="Contraseña">
+        </div>
+
+        <div class="input-contenedor2">
+          <input type="password" name="contraseña" placeholder="Confirmar contraseña">
+        </div>
+
+        <input type="checkbox" name="terminos" id="terminos" required><label for="terminos">Pertenezco a esta institucion</label>
+        <input type="submit" value="Confirmar" class="button">
+
+      </div>
+    </form>
+</body>
+</html>
