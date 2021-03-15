@@ -10,7 +10,11 @@ $usuario = $conn->query($sql);
 
 if($usuario){
     $row = $usuario->fetch_assoc();
-    echo 'Bienvenido, '.$row['tipo_usuario'].' '.$row['username'];
+    setcookie('tipo_usuario',$row['tipo_usuario']);
+    setcookie('username',$row['username']);
+    setcookie('id',$row['id']);
+    header('Location:./home.php');
+    // echo 'Bienvenido, '.$row['tipo_usuario'].' '.$row['username'];
 }else{
     die('Error al iniciar sesión '.$conn->error);
 }
