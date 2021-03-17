@@ -29,8 +29,8 @@
             <input type="number" name="calificacion" id="calificacion" class="form-control" placeholder="[1-20]">
         </div>
         <div class="form-group">
-            <label for="Observacion">Observación</label>
-            <input type="text" name="comment" id="comment" class="form-control" placeholder="Observacion">
+            <label for="observacion">Observación</label>
+            <input type="text" name="observacion" id="observacion" class="form-control" placeholder="Observacion">
         </div>
         <button class="btn btn-success">Agregar</button>
     </form>
