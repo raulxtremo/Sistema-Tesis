@@ -11,12 +11,12 @@ $resultadoEstudiante = $conn->query($buscarEstudiantesql);
 
 if ($resultadoEstudiante && $resultadoEstudiante->num_rows > 0) {
     $row = $resultadoEstudiante->fetch_assoc();
-    $idEstudante = $row['id'];
+    $idEstudiante = $row['id'];
 
     $fecha = date('Y-m-d');
 
-    $sql = "INSERT INTO actividades (id_materia,id_docente,id_estudiante,nota,periodo,fecha_agregado) 
-        VALUES (1,'$id','$idEstudante','$calificacion','0121','$fecha')";
+    $sql = "INSERT INTO actividades (id_materia,id_docente,id_estudiante,nota,periodo,fecha_agregada) 
+        VALUES (1,'$id','$idEstudiante','$calificacion','21-II','$fecha')";
 
     $resultNota = $conn->query($sql);
 
@@ -26,5 +26,6 @@ if ($resultadoEstudiante && $resultadoEstudiante->num_rows > 0) {
         die('Error al ingresar datos ' . $conn->error);
     }
 }else{
-    die('Error al buscar estuadiante '.$conn->error);
+    die('Error al buscar estudiante '.$conn->error);
 }
+?>

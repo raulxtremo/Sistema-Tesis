@@ -18,6 +18,8 @@
             include './view-docente.php';
         }else if($_COOKIE['tipo_usuario']=='estudiante'){
             include './view-estudiante.php';
+        }else if($_COOKIE['tipo_usuario']=='administracion') {
+            include './view-docente.php';
         }
     ?>
     <script src="./funciones.js"></script>
