@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Calificación</title>
+</head>
+<body>
 <div>
     <form action="./calificaciones.php" method="POST">
             <select name="materia" id="materia" class="custom-select">
@@ -23,9 +29,11 @@
             <input type="number" name="calificacion" id="calificacion" class="form-control" placeholder="[1-20]">
         </div>
         <div class="form-group">
-            <label for="comment">Comentarios</label>
-            <input type="text" name="comment" id="comment" class="form-control" placeholder="Bleh">
+            <label for="observacion">Observación</label>
+            <input type="text" name="observacion" id="observacion" class="form-control" placeholder="Observacion">
         </div>
         <button class="btn btn-success">Agregar</button>
     </form>
 </div>
+</body>
+</html>
