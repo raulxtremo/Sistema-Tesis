@@ -1,3 +1,3 @@
 document.getElementById('agregarCal').addEventListener('click',()=>{
-    window.location = 'http://localhost/Sistema-Tesis/home.php?cali=true';
+    window.location = 'http://http://localhost/Sistema-Tesis/view-docente.php?cali=true';
 })
