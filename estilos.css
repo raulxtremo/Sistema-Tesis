@@ -314,3 +314,13 @@ footer .nosotros a:hover {
     }
   }
 }
+
+.contenedor .cerrar_sesion {
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 15px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 3px;
+}
+

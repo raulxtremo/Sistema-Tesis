@@ -22,7 +22,7 @@ body {
 
 /* ----- ----- HEADER ----- ----- */
 header {
-	background: url('fondo1.jpg') #000;
+	background-image: url('/img/fondo.jpg');
 	background-repeat: no-repeat;
 	background-position: center;
 	/*max-height: 400px;*/
@@ -278,4 +278,5 @@ footer .nosotros a:hover {
 		flex-wrap: wrap;
 		padding: 20px 0;
 	}
+}
 }
