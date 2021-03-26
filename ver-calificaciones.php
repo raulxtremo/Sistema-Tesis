@@ -2,9 +2,8 @@
 require('./connection.php');
 $id_estudiante = $_COOKIE['id'];
 
-$sql = "SELECT actividades.*, materia.* FROM actividades 
-    JOIN materia ON actividades.id_materia = materia.id 
-    WHERE id_estudiante='$id_estudiante' ORDER BY materia.nombre";
+$sql = "SELECT * FROM actividades 
+        WHERE id_estudiante='$id_estudiante' ORDER BY materia";
 
 $resultado = $conn->query($sql);
 if (!$resultado) {
@@ -12,7 +11,7 @@ if (!$resultado) {
 }
 ?>
 <div class="calificaiones">
-    <table class="table">
+    <table class="table table-bordered table-hover">
         <thead class="bg-dark text-white">
             <tr>
                 <td>Materia</td>
@@ -25,34 +24,87 @@ if (!$resultado) {
         </thead>
         <tbody class="bt-light">
             <?php
-            $recordar = array();
-            // $materiasTotales = array();
-            // while ($rowMats = $resultado->fetch_assoc()) {
-            //     array_push($materiasTotales, $rowMats['nombre']);
-
-            // }
-            while ($row = $resultado->fetch_assoc()) {
-                echo '<tr>';
-                // echo '<td>'.$row['nombre'].'</td>';
-                if (!in_array($row['nombre'], $recordar)) {
-                    array_push($recordar, $row['nombre']);
-                    echo '<td>' . $row['nombre'] . '</td>';
-                    echo '<td>' . rand(10,20) . '</td>';
-                    echo '<td>' . rand(10,20) . '</td>';
-                    echo '<td>' . rand(10,20) . '</td>';
-                    echo '<td>' . rand(10,20) . '</td>';
-                    echo '<td>' . rand(10,20) . '</td>';
-                    // echo '<td>' . $row['nota'] . '</td>';
- 
-                    
+            function mostrarNotas($materia,$nombreMateria){
+                if (sizeof($materia) > 0) {
+                    echo '<tr>';
+                        echo '<td scope="row">'.$nombreMateria.'</td>';
+                        foreach ($materia as $key => $value) {
+                            echo '<td>'.$value['nota'].'</td>';
+                        }
+                    echo '</tr>';
                 }
-                // if (in_array($row['nombre'], $recordar)) {
-                //     foreach ($materiasTotales as $key => $value) {
-                //         echo $key;
-                //     }
-                // }
-                echo '</tr>';
             }
+            $castellano = array();
+            $ingles = array();
+            $matematica = array();
+            $fisica = array();
+            $ghc = array();
+            $ciencias_biologicas = array();
+            $edu_fisica = array();
+            $arte_patrimonio = array();
+            $quimica = array();
+            $soberania = array();
+            $ciencias_tierra = array();
+            while ($row = $resultado->fetch_assoc()) {
+                switch ($row['materia']) {
+                    case 'castellano':
+                        array_push($castellano, $row);
+                        break;
+                    case 'ingles':
+                        array_push($ingles, $row);
+                        break;
+                    case 'matematica':
+                        array_push($matematica, $row);
+                        break;
+                    case 'fisica':
+                        array_push($fisica, $row);
+                        break;
+                    case 'ghc':
+                        array_push($ghc, $row);
+                        break;
+                    case 'ciencias_biologicas':
+                        array_push($ciencias_biologicas, $row);
+                        break;
+                    case 'edu_fisica':
+                        array_push($edu_fisica, $row);
+                        break;
+                    case 'arte_patrimonio':
+                        array_push($arte_patrimonio, $row);
+                        break;
+                    case 'quimica':
+                        array_push($quimica, $row);
+                        break;
+                    case 'soberania':
+                        array_push($soberania, $row);
+                        break;
+                    case 'ciencias_tierra':
+                        array_push($ciencias_tierra, $row);
+                        break;
+
+                    default:
+                        # code...
+                        break;
+                }
+            }
+            mostrarNotas($ghc,'GHC');
+            mostrarNotas($castellano,'Castellano');
+            mostrarNotas($ingles,'Inglés');
+            mostrarNotas($matematica,'Matemáticas');
+            mostrarNotas($fisica,'Física');
+            mostrarNotas($ciencias_biologicas,'Ciencias Biológicas');
+            mostrarNotas($edu_fisica,'Educación Física');
+            mostrarNotas($arte_patrimonio,'Arte y Patrimonio');
+            mostrarNotas($quimica,'Química');
+            mostrarNotas($soberania,'Soberanía');
+            mostrarNotas($ciencias_tierra,'Ciencias de la Tierra');
+            // if (sizeof($ghc) > 0) {
+            //     echo '<tr>';
+            //         echo '<td>GHC</td>';
+            //         foreach ($ghc as $key => $value) {
+            //             echo '<td>'.$value['nota'].'</td>';
+            //         }
+            //     echo '</tr>';
+            // }
             ?>
         </tbody>
     </table>
