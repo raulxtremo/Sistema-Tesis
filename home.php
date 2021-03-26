@@ -1,3 +1,8 @@
+<?php
+    if(!isset($_COOKIE['id'])){
+        header('Location:./index.html');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,12 +58,11 @@
             include './view-docente.php';
         } else if ($_COOKIE['tipo_usuario'] == 'estudiante') {
             include './view-estudiante.php';
-        } else if ($_COOKIE['tipo_usuario'] == 'administracion') {
-            include './docentes-administracion.html';
         }
         ?>
-        <footer>
-            <!-- section class="contacto">
+        <footer class="mb-0 pb-0">
+        <div class="p-5"></div>
+            <!-- <section class="contacto">
 			<div class="contenedor">
 				<h3 class="titulo">Contacto</h3>
 				<form action="" class="formulario">
@@ -68,7 +72,7 @@
 					<input class="boton" type="submit" value="Enviar">
 				</form>
 			</div>
-		</section> -->
+		    </section> -->
             <section class="nosotros">
                 <div class="contenedor">
                     <p>Raul Giron & Angel Cuesta</p>
